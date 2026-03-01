@@ -24,7 +24,9 @@ export class TaskForm {
 
   constructor() {
     if(this.id) {
-      this.form.patchValue(this.taskService.getTask(this.id));
+      this.taskService.getTask(this.id).subscribe(task => {
+        this.form.patchValue(task);
+      });
     }
   }
 
@@ -38,17 +40,12 @@ export class TaskForm {
       return;
     }
 
-    if(this.id) {
-      const existingTask = this.taskService.getTask(this.id);
-      this.taskService.updateTask({
-        ...existingTask,
-        ...this.form.value,
-      });
-    } else {
-      this.taskService.addTask(this.form.value).subscribe(() => {
-        this.router.navigate(["/"]);
-      });
-    }
+    const taskObservable = this.id
+      ? this.taskService.updateTask(this.form.value, this.id)
+      : this.taskService.addTask(this.form.value);
+    taskObservable.subscribe(() => {
+      this.router.navigate(["/"]);
+    });
   }
 
   prefillForm() {
