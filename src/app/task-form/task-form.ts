@@ -12,4 +12,8 @@ export class TaskForm {
     title: new FormControl(""),
     description: new FormControl(""),
   });
+
+  submit() {
+    console.log("Task created", this.form.value);
+  }
 }
