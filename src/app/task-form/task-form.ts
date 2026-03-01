@@ -2,10 +2,11 @@ import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {TaskService} from '../task-service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AlertBanner} from '../shared/components/alert-banner/alert-banner';
 
 @Component({
   selector: 'app-task-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, AlertBanner],
   templateUrl: './task-form.html',
   styleUrl: './task-form.css',
 })
