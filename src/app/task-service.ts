@@ -1,6 +1,5 @@
-import {inject, Injectable, signal, WritableSignal} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {Task} from './models/task.model';
-import {v4 as uuid} from 'uuid';
 import {HttpClient} from '@angular/common/http';
 import {forkJoin, Observable, of, switchMap, tap} from 'rxjs';
 
@@ -9,21 +8,6 @@ import {forkJoin, Observable, of, switchMap, tap} from 'rxjs';
 })
 export class TaskService {
   private http = inject(HttpClient);
-
-  tasks: WritableSignal<Task[]> = signal([
-    {
-      id: uuid(),
-      title: "Task 1 from service",
-      description: "Description of task 1 coming from new task service",
-      createdAt: new Date()
-    },
-    {
-      id: uuid(),
-      title: "Task 2",
-      description: "Description of task 2",
-      createdAt: new Date()
-    },
-  ]);
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>("http://localhost:3000/tasks");
