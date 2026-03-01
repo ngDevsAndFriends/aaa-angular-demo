@@ -29,15 +29,11 @@ export class TaskService {
     return this.http.get<Task[]>("http://localhost:3000/tasks");
   }
 
-  addTask(task: Partial<Task>): void {
-    this.tasks.update(tasks => [
-      ...tasks,
-      {
-        ...task,
-        id: uuid(),
-        createdAt: new Date()
-      }
-    ])
+  addTask(task: Partial<Task>) {
+    return this.http.post<Task>("http://localhost:3000/tasks", {
+      ...task,
+      createdAt: new Date()
+    });
   }
 
   getTask(id: string): Task {

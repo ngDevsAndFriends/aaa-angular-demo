@@ -45,10 +45,10 @@ export class TaskForm {
         ...this.form.value,
       });
     } else {
-      this.taskService.addTask(this.form.value);
+      this.taskService.addTask(this.form.value).subscribe(() => {
+        this.router.navigate(["/"]);
+      });
     }
-
-    this.router.navigate(["/"]);
   }
 
   prefillForm() {
