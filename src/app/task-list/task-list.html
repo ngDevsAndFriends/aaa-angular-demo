@@ -11,8 +11,9 @@
       <tr>
         <td>{{ task.title }}</td>
         <td>{{ task.createdAt | date }}</td>
-        <td>
+        <td class="flex gap-2">
           <a class="btn btn-primary" [routerLink]="['/update', task.id]">Update</a>
+          <button class="btn btn-error" type="button" (click)="deleteTask(task.id)">Delete</button>
         </td>
       </tr>
     }
