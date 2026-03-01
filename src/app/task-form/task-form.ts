@@ -37,7 +37,16 @@ export class TaskForm {
       return;
     }
 
-    this.taskService.addTask(this.form.value);
+    if(this.id) {
+      const existingTask = this.taskService.getTask(this.id);
+      this.taskService.updateTask({
+        ...existingTask,
+        ...this.form.value,
+      });
+    } else {
+      this.taskService.addTask(this.form.value);
+    }
+
     this.router.navigate(["/"]);
   }
 }
