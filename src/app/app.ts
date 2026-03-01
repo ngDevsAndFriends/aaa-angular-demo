@@ -1,8 +1,11 @@
 import { Component, signal } from '@angular/core';
+import {TaskList} from './task-list/task-list';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [
+    TaskList
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
