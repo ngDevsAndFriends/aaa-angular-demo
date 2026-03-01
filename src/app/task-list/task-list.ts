@@ -1,10 +1,14 @@
 import {Component, inject} from '@angular/core';
 import {DatePipe} from '@angular/common';
 import {TaskService} from '../task-service';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-task-list',
-  imports: [DatePipe],
+  imports: [
+    DatePipe,
+    RouterLink
+  ],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css',
 })

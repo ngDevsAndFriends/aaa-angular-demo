@@ -11,7 +11,9 @@
       <tr>
         <td>{{ task.title }}</td>
         <td>{{ task.createdAt | date }}</td>
-        <td></td>
+        <td>
+          <a class="btn btn-primary" [routerLink]="['/update', task.id]">Update</a>
+        </td>
       </tr>
     }
   </tbody>
