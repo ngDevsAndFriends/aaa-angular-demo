@@ -9,8 +9,8 @@ export class TaskService {
   tasks: WritableSignal<Task[]> = signal([
     {
       id: uuid(),
-      title: "Task 1",
-      description: "Description of task 1",
+      title: "Task 1 from service",
+      description: "Description of task 1 coming from new task service",
       createdAt: new Date()
     },
     {
