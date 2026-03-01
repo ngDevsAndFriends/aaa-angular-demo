@@ -41,4 +41,10 @@ export class TaskService {
       return tasks.map(existingTask => existingTask.id === task.id ? task : existingTask);
     })
   }
+
+  deleteTask(id: string) {
+    this.tasks.update(tasks => {
+      return tasks.filter(task => task.id !== id);
+    });
+  }
 }
