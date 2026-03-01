@@ -10,7 +10,7 @@
     @for (task of tasks(); track task.id) {
       <tr>
         <td>{{ task.title }}</td>
-        <td>{{ task.createdAt }}</td>
+        <td>{{ task.createdAt | date }}</td>
         <td></td>
       </tr>
     }
