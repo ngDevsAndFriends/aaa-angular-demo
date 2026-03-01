@@ -21,10 +21,14 @@ export class TaskList {
   tasks$ = this.taskService.getTasks();
 
   deleteTask(id: string): void {
-    this.taskService.deleteTask(id);
+    this.taskService.deleteTask(id).subscribe(() => {
+      document.location.reload();
+    });
   }
 
   deleteAllTasks() {
-    this.taskService.deleteAllTasks();
+    return this.taskService.deleteAllTasks().subscribe(() => {
+      document.location.reload();
+    });
   }
 }
