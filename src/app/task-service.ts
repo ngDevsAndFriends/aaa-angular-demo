@@ -36,14 +36,12 @@ export class TaskService {
     });
   }
 
-  getTask(id: string): Task {
-    return this.tasks().find(task => task.id === id)!;
+  getTask(id: string) {
+    return this.http.get<Task>(`http://localhost:3000/tasks/${id}`);
   }
 
-  updateTask(task: Task) {
-    this.tasks.update(tasks => {
-      return tasks.map(existingTask => existingTask.id === task.id ? task : existingTask);
-    })
+  updateTask(task: Partial<Task>, id: string) {
+    return this.http.patch<Task>(`http://localhost:3000/tasks/${id}`, task);
   }
 
   deleteTask(id: string) {
