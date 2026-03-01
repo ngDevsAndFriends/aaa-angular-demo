@@ -47,4 +47,8 @@ export class TaskService {
       return tasks.filter(task => task.id !== id);
     });
   }
+
+  deleteAllTasks() {
+    this.tasks.set([]);
+  }
 }

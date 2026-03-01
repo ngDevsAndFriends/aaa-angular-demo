@@ -24,4 +24,4 @@
   <p class="my-5 text-center">No tasks</p>
 }
 
-<app-alert-banner message="Hello Task List" type="error" />
+<app-alert-banner message="Do you really want to delete all tasks?" type="error" (onsubmit)="deleteAllTasks()" />

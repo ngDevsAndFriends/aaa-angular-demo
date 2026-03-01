@@ -22,4 +22,8 @@ export class TaskList {
   deleteTask(id: string): void {
     this.taskService.deleteTask(id);
   }
+
+  deleteAllTasks() {
+    this.taskService.deleteAllTasks();
+  }
 }
