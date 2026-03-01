@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-alert-banner',
@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './alert-banner.html',
   styleUrl: './alert-banner.css',
 })
-export class AlertBanner {}
+export class AlertBanner {
+  message = input.required<string>();
+  type = input.required<"info" | "error">();
+}
