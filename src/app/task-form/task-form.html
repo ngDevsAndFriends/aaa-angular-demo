@@ -16,4 +16,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<app-alert-banner message="Hello Task Form" type="info" />
+<app-alert-banner message="Do you want to prefill the form?" type="info" (onsubmit)="prefillForm()" />

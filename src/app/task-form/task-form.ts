@@ -50,4 +50,11 @@ export class TaskForm {
 
     this.router.navigate(["/"]);
   }
+
+  prefillForm() {
+    this.form.setValue({
+      title: "Generated Task",
+      description: "Generated Description"
+    });
+  }
 }
