@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {DatePipe} from '@angular/common';
+import {AsyncPipe, DatePipe} from '@angular/common';
 import {TaskService} from '../task-service';
 import {RouterLink} from '@angular/router';
 import {AlertBanner} from '../shared/components/alert-banner/alert-banner';
@@ -9,7 +9,8 @@ import {AlertBanner} from '../shared/components/alert-banner/alert-banner';
   imports: [
     DatePipe,
     RouterLink,
-    AlertBanner
+    AlertBanner,
+    AsyncPipe
   ],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css',
@@ -17,7 +18,7 @@ import {AlertBanner} from '../shared/components/alert-banner/alert-banner';
 export class TaskList {
   private taskService = inject(TaskService);
 
-  tasks = this.taskService.tasks;
+  tasks$ = this.taskService.getTasks();
 
   deleteTask(id: string): void {
     this.taskService.deleteTask(id);
